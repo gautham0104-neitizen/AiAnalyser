@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | AI Programmer Analyzer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+    <div class="app-layout">
+
+        <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-icon">
+                    AI
+                </div>
+
+                <span>
+                    Programmer Analyzer
+                </span>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="analyze.html" class="nav-item">
+                    Analyze Code
+                </a>
+
+                <a href="history.html" class="nav-item">
+                    History
+                </a>
+
+                <a href="profile.html" class="nav-item active">
+                    My Profile
+                </a>
+
+            </nav>
+
+
+            <button id="logoutButton" class="logout-button">
+                Logout
+            </button>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-header">
+
+                <p class="eyebrow">
+                    PROGRAMMER PROFILE
+                </p>
+
+                <h1>
+                    <span id="username">
+                        Programmer
+                    </span>
+                </h1>
+
+                <p class="header-subtitle">
+                    A deeper look at your programming
+                    behavior, strengths, and progress.
+                </p>
+
+            </header>
+
+
+            <div id="profileMessage" class="message"></div>
+
+
+            <!-- =================================================
+             PROFILE OVERVIEW
+             ================================================= -->
+
+            <section class="profile-overview">
+
+                <div class="profile-identity-card">
+
+                    <div class="profile-large-icon">
+                        AI
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PROGRAMMER TYPE
+                        </p>
+
+                        <h2 id="programmerType">
+                            Analyzing...
+                        </h2>
+
+                        <p id="profileSummary">
+                            Building your programming profile
+                            from your submissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stat-grid">
+
+                    <div class="profile-stat">
+
+                        <span>
+                            Submissions
+                        </span>
+
+                        <strong id="submissions">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>
+                            Avg Complexity
+                        </span>
+
+                        <strong id="complexity">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>
+                            Code Quality
+                        </span>
+
+                        <strong id="quality">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>
+                            Optimization
+                        </span>
+
+                        <strong id="optimization">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             PROGRAMMING DNA
+             ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PROGRAMMING DNA
+                        </p>
+
+                        <h2>
+                            Your Core Skills
+                        </h2>
+
+                        <p class="header-subtitle">
+                            How your analyzed submissions score
+                            across different programming dimensions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dna-grid">
+
+                    <div class="dna-card">
+
+                        <div class="dna-card-header">
+
+                            <span>
+                                Code Quality
+                            </span>
+
+                            <strong id="qualityScore">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="dna-track">
+
+                            <div id="qualityBar" class="dna-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dna-card">
+
+                        <div class="dna-card-header">
+
+                            <span>
+                                Optimization
+                            </span>
+
+                            <strong id="optimizationScore">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="dna-track">
+
+                            <div id="optimizationBar" class="dna-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dna-card">
+
+                        <div class="dna-card-header">
+
+                            <span>
+                                Algorithm Diversity
+                            </span>
+
+                            <strong id="algorithmScore">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="dna-track">
+
+                            <div id="algorithmBar" class="dna-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dna-card">
+
+                        <div class="dna-card-header">
+
+                            <span>
+                                Data Structure Diversity
+                            </span>
+
+                            <strong id="dataStructureScore">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="dna-track">
+
+                            <div id="dataStructureBar" class="dna-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dna-card">
+
+                        <div class="dna-card-header">
+
+                            <span>
+                                Problem Solving
+                            </span>
+
+                            <strong id="problemScore">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="dna-track">
+
+                            <div id="problemBar" class="dna-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             BEHAVIORAL PROFILE
+             ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            BEHAVIORAL PROFILE
+                        </p>
+
+                        <h2>
+                            How You Code
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-behavior-grid">
+
+                    <div class="behavior-highlight-card">
+
+                        <span class="profile-label">
+                            STRONGEST HABIT
+                        </span>
+
+                        <strong id="strongestHabit">
+                            —
+                        </strong>
+
+                        <span id="strongestHabitScore">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="behavior-highlight-card">
+
+                        <span class="profile-label">
+                            IMPROVEMENT AREA
+                        </span>
+
+                        <strong id="weakestHabit">
+                            —
+                        </strong>
+
+                        <span id="weakestHabitScore">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-behavior-card">
+
+                    <div class="profile-behavior-row">
+
+                        <span>
+                            Hash Maps
+                        </span>
+
+                        <div class="profile-behavior-track">
+
+                            <div id="hashMapBar" class="profile-behavior-fill"></div>
+
+                        </div>
+
+                        <strong id="hashMapScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-behavior-row">
+
+                        <span>
+                            Sets
+                        </span>
+
+                        <div class="profile-behavior-track">
+
+                            <div id="setBar" class="profile-behavior-fill"></div>
+
+                        </div>
+
+                        <strong id="setScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-behavior-row">
+
+                        <span>
+                            Recursion
+                        </span>
+
+                        <div class="profile-behavior-track">
+
+                            <div id="recursionBar" class="profile-behavior-fill"></div>
+
+                        </div>
+
+                        <strong id="recursionScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-behavior-row">
+
+                        <span>
+                            Nested Loops
+                        </span>
+
+                        <div class="profile-behavior-track">
+
+                            <div id="nestedLoopBar" class="profile-behavior-fill"></div>
+
+                        </div>
+
+                        <strong id="nestedLoopScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-behavior-row">
+
+                        <span>
+                            Brute Force
+                        </span>
+
+                        <div class="profile-behavior-track">
+
+                            <div id="bruteForceBar" class="profile-behavior-fill"></div>
+
+                        </div>
+
+                        <strong id="bruteForceScore">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div id="recurringPatterns" class="profile-patterns"></div>
+
+            </section>
+
+
+            <!-- =================================================
+             GROWTH
+             ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PERFORMANCE
+                        </p>
+
+                        <h2>
+                            Your Growth
+                        </h2>
+
+                        <p class="header-subtitle">
+                            Recent performance across your submissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="growth-card">
+
+                    <div class="growth-header">
+
+                        <span>
+                            Recent Performance
+                        </span>
+
+                        <span id="growthStatus">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div id="growthChart" class="growth-chart"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             AI INSIGHTS
+             ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            AI ANALYSIS
+                        </p>
+
+                        <h2>
+                            Your AI Insights
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insights-grid">
+
+                    <article class="profile-insight-card">
+
+                        <span class="profile-insight-label">
+                            STRENGTH
+                        </span>
+
+                        <h3>
+                            Your strength
+                        </h3>
+
+                        <p id="insightStrength">
+                            —
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-insight-card">
+
+                        <span class="profile-insight-label">
+                            WEAKNESS
+                        </span>
+
+                        <h3>
+                            Your weakness
+                        </h3>
+
+                        <p id="insightWeakness">
+                            —
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-insight-card">
+
+                        <span class="profile-insight-label">
+                            COMPLEXITY
+                        </span>
+
+                        <h3>
+                            Complexity
+                        </h3>
+
+                        <p id="insightComplexity">
+                            —
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-insight-card">
+
+                        <span class="profile-insight-label">
+                            RECOMMENDATION
+                        </span>
+
+                        <h3>
+                            What to work on
+                        </h3>
+
+                        <p id="insightRecommendation">
+                            —
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-insight-card insight-wide">
+
+                        <span class="profile-insight-label">
+                            PROGRESS
+                        </span>
+
+                        <h3>
+                            Your progress
+                        </h3>
+
+                        <p id="insightProgress">
+                            —
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             CLUSTER
+             ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="cluster-profile-card">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            MACHINE LEARNING PROFILE
+                        </p>
+
+                        <h2>
+                            Your Programming Cluster
+                        </h2>
+
+                        <p>
+                            Your submissions are grouped based on
+                            similarities in programming behavior.
+                        </p>
+
+                    </div>
+
+
+                    <div class="cluster-value">
+
+                        <span>
+                            CLUSTER
+                        </span>
+
+                        <strong id="cluster">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

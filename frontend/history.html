@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>History | AI Programmer Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">AI</div>
+            <span>Programmer Analyzer</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                Dashboard
+            </a>
+
+            <a href="analyze.html" class="nav-item">
+                Analyze Code
+            </a>
+
+            <a href="history.html" class="nav-item active">
+                History
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                My Profile
+            </a>
+
+        </nav>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <p class="eyebrow">
+                SUBMISSION HISTORY
+            </p>
+
+            <h1>
+                Your submissions
+            </h1>
+
+            <p class="header-subtitle">
+                Review the code you've analyzed and
+                how the AI classified it.
+            </p>
+
+        </header>
+
+
+        <div
+            id="historyMessage"
+            class="message"
+        ></div>
+
+
+        <section
+            id="historyList"
+            class="history-list"
+        ></section>
+
+
+        <section
+            id="emptyHistory"
+            class="empty-history hidden"
+        >
+
+            <div class="empty-icon">
+                AI
+            </div>
+
+            <h2>
+                No submissions yet
+            </h2>
+
+            <p>
+                Analyze your first piece of code to
+                start building your programmer profile.
+            </p>
+
+            <a
+                href="analyze.html"
+                class="primary-button history-button"
+            >
+                Analyze Code →
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/history.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analyze Code | AI Programmer Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">AI</div>
+            <span>Programmer Analyzer</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="analyze.html"
+                class="nav-item active"
+            >
+                Analyze Code
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-item"
+            >
+                My Profile
+            </a>
+
+        </nav>
+
+        <button
+            type="button"
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <main class="dashboard-main analyzer-main">
+
+        <header class="analyzer-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI CODE ANALYZER
+                </p>
+
+                <h1>
+                    Analyze your code
+                </h1>
+
+                <p class="header-subtitle">
+                    Understand how the AI interprets your
+                    programming behavior.
+                </p>
+
+            </div>
+
+            <div class="language-badge">
+                PYTHON
+            </div>
+
+        </header>
+
+
+        <!-- ANALYZER WORKSPACE -->
+
+        <section class="analyzer-workspace">
+
+            <!-- CODE PANEL -->
+
+            <div class="code-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            PROBLEM
+                        </span>
+
+                        <input
+                            type="text"
+                            id="problemName"
+                            class="problem-input"
+                            placeholder="e.g. Two Sum"
+                        >
+
+                    </div>
+
+                    <span class="editor-status">
+                        ● Ready
+                    </span>
+
+                </div>
+
+
+                <div class="editor-wrapper">
+
+                    <div class="line-numbers" id="lineNumbers">
+                        1
+                    </div>
+
+                    <textarea
+                        id="code"
+                        class="code-editor"
+                        spellcheck="false"
+                        wrap="off"
+                        placeholder="Paste your Python solution here..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="editor-footer">
+
+                    <span>
+                        Python · AST analysis · ML classification
+                    </span>
+
+                    <button
+                        type="button"
+                        id="analyzeButton"
+                        class="analyze-button"
+                    >
+                        Analyze Code
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LIVE SUMMARY -->
+
+            <div class="analysis-preview">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            AI ANALYSIS
+                        </span>
+
+                        <h2>
+                            Programmer Profile
+                        </h2>
+
+                    </div>
+
+                    <div class="ai-dot"></div>
+
+                </div>
+
+
+                <div
+                    id="emptyAnalysis"
+                    class="empty-analysis"
+                >
+
+                    <div class="empty-icon">
+                        AI
+                    </div>
+
+                    <h3>
+                        Ready to analyze
+                    </h3>
+
+                    <p>
+                        Submit your code and we'll analyze
+                        its complexity, structure, patterns
+                        and programming behavior.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="previewResults"
+                    class="preview-results hidden"
+                >
+
+                    <div class="cluster-display">
+
+                        <span>
+                            PREDICTED CLUSTER
+                        </span>
+
+                        <strong id="cluster">
+                            —
+                        </strong>
+
+                        <small id="clusterConfidence">
+                            —
+                        </small>
+
+                    </div>
+
+
+                    <div class="quick-stats">
+
+                        <div>
+                            <span>Complexity</span>
+                            <strong id="complexity">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Maintainability</span>
+                            <strong id="maintainability">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Optimization</span>
+                            <strong id="optimization">—</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <!-- DETAILED RESULTS -->
+
+        <section
+            id="results"
+            class="results-section hidden"
+        >
+
+            <div class="results-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ANALYSIS COMPLETE
+                    </p>
+
+                    <h2>
+                        Detailed results
+                    </h2>
+
+                </div>
+
+                <div class="saved-indicator">
+                    ✓ Saved to profile
+                </div>
+
+            </div>
+
+
+            <!-- SCORE CARDS -->
+
+            <div class="score-cards">
+
+                <div class="big-score-card">
+
+                    <span>
+                        Code Quality
+                    </span>
+
+                    <strong id="quality">
+                        —
+                    </strong>
+
+                    <div class="mini-track">
+                        <div
+                            id="qualityBar"
+                            class="mini-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="big-score-card">
+
+                    <span>
+                        Optimization
+                    </span>
+
+                    <strong id="optimizationLarge">
+                        —
+                    </strong>
+
+                    <div class="mini-track">
+                        <div
+                            id="optimizationBar"
+                            class="mini-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="big-score-card">
+
+                    <span>
+                        Algorithm Diversity
+                    </span>
+
+                    <strong id="algorithmLarge">
+                        —
+                    </strong>
+
+                    <div class="mini-track">
+                        <div
+                            id="algorithmBar"
+                            class="mini-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="big-score-card">
+
+                    <span>
+                        Problem Solving
+                    </span>
+
+                    <strong id="problemLarge">
+                        —
+                    </strong>
+
+                    <div class="mini-track">
+                        <div
+                            id="problemBar"
+                            class="mini-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="details-grid">
+
+                <!-- BEHAVIOR -->
+
+                <div class="analysis-card">
+
+                    <div class="section-heading">
+
+                        <p class="eyebrow">
+                            BEHAVIORAL FEATURES
+                        </p>
+
+                        <h2>
+                            Programming behavior
+                        </h2>
+
+                    </div>
+
+
+                    <div class="feature-grid">
+
+                        <div class="feature-item">
+                            <span>
+                                Algorithm Diversity
+                            </span>
+                            <strong id="algorithmDiversity">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="feature-item">
+                            <span>
+                                Data Structure Diversity
+                            </span>
+                            <strong id="dataStructureDiversity">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="feature-item">
+                            <span>
+                                Problem Solving Diversity
+                            </span>
+                            <strong id="problemSolvingDiversity">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="feature-item">
+                            <span>
+                                Brute Force Tendency
+                            </span>
+                            <strong id="bruteForce">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="feature-item">
+                            <span>
+                                Nested Loops
+                            </span>
+                            <strong id="nestedLoops">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="feature-item">
+                            <span>
+                                Recursion
+                            </span>
+                            <strong id="recursion">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CLUSTER -->
+
+                <div class="analysis-card">
+
+                    <div class="section-heading">
+
+                        <p class="eyebrow">
+                            ML MODEL
+                        </p>
+
+                        <h2>
+                            Cluster probabilities
+                        </h2>
+
+                    </div>
+
+                    <div
+                        id="clusterProbabilities"
+                        class="probability-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="success-banner">
+
+                <span class="success-check">
+                    ✓
+                </span>
+
+                Analysis saved to your programmer profile.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/analyze.js"></script>
+
+</body>
+
+</html>

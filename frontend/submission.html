@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Submission | AI Programmer Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                AI
+            </div>
+
+            <span>
+                Programmer Analyzer
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="analyze.html"
+                class="nav-item"
+            >
+                Analyze Code
+            </a>
+
+            <a
+                href="history.html"
+                class="nav-item active"
+            >
+                History
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-item"
+            >
+                My Profile
+            </a>
+
+        </nav>
+
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <a
+            href="history.html"
+            class="back-link"
+        >
+            ← Back to History
+        </a>
+
+
+        <header class="dashboard-header">
+
+            <p class="eyebrow">
+                SUBMISSION ANALYSIS
+            </p>
+
+            <h1 id="problemName">
+                Loading...
+            </h1>
+
+            <p
+                id="submissionMeta"
+                class="header-subtitle"
+            >
+                Loading submission...
+            </p>
+
+        </header>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <!-- SCORE CARDS -->
+
+        <section class="result-grid">
+
+            <div class="result-card">
+
+                <span>
+                    Code Quality
+                </span>
+
+                <strong id="quality">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <span>
+                    Optimization
+                </span>
+
+                <strong id="optimization">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <span>
+                    Complexity
+                </span>
+
+                <strong id="complexity">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <span>
+                    Cluster
+                </span>
+
+                <strong id="cluster">
+                    —
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEHAVIOR -->
+
+        <section class="analysis-card">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    PROGRAMMING BEHAVIOR
+                </p>
+
+                <h2>
+                    Behavioral analysis
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-item">
+
+                    <span>
+                        Algorithm Diversity
+                    </span>
+
+                    <strong id="algorithm">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        Data Structure Diversity
+                    </span>
+
+                    <strong id="dataStructure">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        Problem Solving Diversity
+                    </span>
+
+                    <strong id="problemSolving">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        Brute Force Tendency
+                    </span>
+
+                    <strong id="bruteForce">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        Nested Loops
+                    </span>
+
+                    <strong id="nestedLoops">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        Recursion
+                    </span>
+
+                    <strong id="recursion">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPLAINABLE ANALYSIS -->
+
+        <section class="submission-section explainable-analysis">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AI EXPLANATION
+                    </p>
+
+                    <h2>
+                        Why this solution scored this way
+                    </h2>
+
+                    <p class="section-subtitle">
+                        A breakdown of what the analyzer detected
+                        in your solution.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DETECTED APPROACH -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-header">
+
+                    <div class="explanation-icon">
+                        →
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Detected Approach
+                        </h3>
+
+                        <p>
+                            The algorithms and strategies
+                            your code employs
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="detectedApproaches"
+                    class="explanation-tags"
+                ></div>
+
+            </div>
+
+
+            <!-- COMPLEXITY -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-header">
+
+                    <div class="explanation-icon">
+                        C
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Complexity Analysis
+                        </h3>
+
+                        <p>
+                            How complex your solution is
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="explanation-metrics">
+
+                    <div class="metric-row">
+
+                        <span>Score</span>
+
+                        <strong
+                            id="explanationComplexityScore"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                    <p
+                        id="complexityExplanation"
+                        class="explanation-text"
+                    >
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- OPTIMIZATION -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-header">
+
+                    <div class="explanation-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Optimization
+                        </h3>
+
+                        <p>
+                            Efficiency of your solution
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="explanation-metrics">
+
+                    <div class="metric-row">
+
+                        <span>Score</span>
+
+                        <strong
+                            id="explanationOptimizationScore"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                    <p
+                        id="optimizationExplanation"
+                        class="explanation-text"
+                    >
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUALITY -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-header">
+
+                    <div class="explanation-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Code Quality
+                        </h3>
+
+                        <p>
+                            Readability and maintainability
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="explanation-metrics">
+
+                    <div class="metric-row">
+
+                        <span>Score</span>
+
+                        <strong
+                            id="explanationQualityScore"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                    <p
+                        id="qualityExplanation"
+                        class="explanation-text"
+                    >
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMPROVEMENT SUGGESTION -->
+
+            <div class="improvement-card">
+
+                <div class="improvement-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <p class="eyebrow">
+                        NEXT STEPS
+                    </p>
+
+                    <p
+                        id="improvementSuggestion"
+                        class="improvement-text"
+                    >
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CODE -->
+
+        <section class="analysis-card">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    SUBMITTED CODE
+                </p>
+
+                <h2>
+                    Your code
+                </h2>
+
+            </div>
+
+
+            <pre
+                id="submittedCode"
+                class="submission-code"
+            ></pre>
+
+        </section>
+
+
+        <!-- CLUSTER PROBABILITIES -->
+
+        <section class="analysis-card">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    ML MODEL
+                </p>
+
+                <h2>
+                    Cluster probabilities
+                </h2>
+
+            </div>
+
+
+            <div
+                id="clusterProbabilities"
+                class="probability-list"
+            ></div>
+
+        </section>
+
+
+        <!-- TECHNICAL DETAILS -->
+
+        <section class="analysis-card">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    CODE STRUCTURE
+                </p>
+
+                <h2>
+                    Technical details
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-item">
+                    <span>Lines of Code</span>
+                    <strong id="loc">—</strong>
+                </div>
+
+                <div class="feature-item">
+                    <span>Maintainability</span>
+                    <strong id="maintainability">—</strong>
+                </div>
+
+                <div class="feature-item">
+                    <span>Functions</span>
+                    <strong id="functions">—</strong>
+                </div>
+
+                <div class="feature-item">
+                    <span>Classes</span>
+                    <strong id="classes">—</strong>
+                </div>
+
+                <div class="feature-item">
+                    <span>Total Loops</span>
+                    <strong id="loops">—</strong>
+                </div>
+
+                <div class="feature-item">
+                    <span>Max Complexity</span>
+                    <strong id="maxComplexity">—</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/submission.js"></script>
+
+</body>
+
+</html>

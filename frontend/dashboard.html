@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | AI Programmer Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                AI
+            </div>
+
+            <span>
+                Programmer Analyzer
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                Dashboard
+            </a>
+
+            <a href="analyze.html" class="nav-item">
+                Analyze Code
+            </a>
+
+            <a href="history.html" class="nav-item">
+                History
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                My Profile
+            </a>
+
+        </nav>
+
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PROGRAMMER DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome back,
+                    <span id="username">
+                        Programmer
+                    </span>
+                </h1>
+
+                <p class="header-subtitle">
+                    Here's how your programming
+                    behavior is looking.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    Submissions
+                </span>
+
+                <strong
+                    id="submissions"
+                    class="stat-value"
+                >
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    Avg Complexity
+                </span>
+
+                <strong
+                    id="complexity"
+                    class="stat-value"
+                >
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    Code Quality
+                </span>
+
+                <strong
+                    id="quality"
+                    class="stat-value"
+                >
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    Optimization
+                </span>
+
+                <strong
+                    id="optimization"
+                    class="stat-value"
+                >
+                    —
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AI ANALYSIS
+                    </p>
+
+                    <h2>
+                        Your Programming Profile
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-description">
+
+                    <div class="profile-icon">
+                        AI
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Behavioral Analysis
+                        </h3>
+
+                        <p>
+                            These scores are calculated
+                            from your analyzed submissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="score-list">
+
+                    <div class="score-row">
+
+                        <span>
+                            Code Quality
+                        </span>
+
+                        <div class="score-track">
+                            <div
+                                id="qualityBar"
+                                class="score-fill"
+                            ></div>
+                        </div>
+
+                        <strong id="qualityScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="score-row">
+
+                        <span>
+                            Optimization
+                        </span>
+
+                        <div class="score-track">
+                            <div
+                                id="optimizationBar"
+                                class="score-fill"
+                            ></div>
+                        </div>
+
+                        <strong id="optimizationScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="score-row">
+
+                        <span>
+                            Algorithm Diversity
+                        </span>
+
+                        <div class="score-track">
+                            <div
+                                id="algorithmBar"
+                                class="score-fill"
+                            ></div>
+                        </div>
+
+                        <strong id="algorithmScore">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="score-row">
+
+                        <span>
+                            Problem Solving
+                        </span>
+
+                        <div class="score-track">
+                            <div
+                                id="problemBar"
+                                class="score-fill"
+                            ></div>
+                        </div>
+
+                        <strong id="problemScore">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        
+        <section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                PERFORMANCE
+            </p>
+
+            <h2>
+                Your coding trajectory
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="trend-card">
+
+        <div class="trend-header">
+
+            <div>
+                <span>Recent performance</span>
+                <p>
+                    How your code has evolved across submissions.
+                </p>
+            </div>
+
+            <div class="trend-legend">
+
+                <span>
+                    <i class="legend-quality"></i>
+                    Quality
+                </span>
+
+                <span>
+                    <i class="legend-optimization"></i>
+                    Optimization
+                </span>
+
+                <span>
+                    <i class="legend-complexity"></i>
+                    Complexity
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-wrapper">
+
+            <canvas
+                id="performanceChart"
+                height="260"
+            ></canvas>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- AI INSIGHTS -->
+
+<section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                AI INSIGHTS
+            </p>
+
+            <h2>
+                What your code says about you
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="insights-grid">
+
+        <!-- STRENGTH -->
+
+        <div class="insight-card strength-card">
+
+            <div class="insight-icon">
+                ↗
+            </div>
+
+            <div>
+
+                <span class="insight-label">
+                    STRENGTH
+                </span>
+
+                <h3>
+                    Your strongest area
+                </h3>
+
+                <p id="insightStrength">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- WEAKNESS -->
+
+        <div class="insight-card weakness-card">
+
+            <div class="insight-icon">
+                !
+            </div>
+
+            <div>
+
+                <span class="insight-label">
+                    AREA TO IMPROVE
+                </span>
+
+                <h3>
+                    Your weakest area
+                </h3>
+
+                <p id="insightWeakness">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPLEXITY -->
+
+        <div class="insight-card complexity-card">
+
+            <div class="insight-icon">
+                ◇
+            </div>
+
+            <div>
+
+                <span class="insight-label">
+                    CODE COMPLEXITY
+                </span>
+
+                <h3>
+                    Control flow
+                </h3>
+
+                <p id="insightComplexity">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECOMMENDATION -->
+
+        <div class="insight-card recommendation-card">
+
+            <div class="insight-icon">
+                ★
+            </div>
+
+            <div>
+
+                <span class="insight-label">
+                    RECOMMENDATION
+                </span>
+
+                <h3>
+                    What to work on next
+                </h3>
+
+                <p id="insightRecommendation">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="insight-card progress-card">
+
+            <div class="insight-icon">
+                ↑
+            </div>
+
+            <div>
+
+                <span class="insight-label">
+                    PROGRESS
+                </span>
+
+                <h3>
+                    Recent trajectory
+                </h3>
+
+                <p id="insightProgress">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- =====================================================
+     CODING HABITS
+     ===================================================== -->
+
+<section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                BEHAVIORAL ANALYSIS
+            </p>
+
+            <h2>
+                Your Coding Habits
+            </h2>
+
+            <p class="header-subtitle">
+                Patterns detected across your analyzed submissions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="habits-summary-card">
+
+        <div class="habit-highlight">
+
+            <span class="habit-label">
+                STRONGEST HABIT
+            </span>
+
+            <strong id="strongestHabit">
+                —
+            </strong>
+
+            <span id="strongestHabitScore">
+                —
+            </span>
+
+        </div>
+
+
+        <div class="habit-divider"></div>
+
+
+        <div class="habit-highlight">
+
+            <span class="habit-label">
+                IMPROVEMENT AREA
+            </span>
+
+            <strong id="weakestHabit">
+                —
+            </strong>
+
+            <span id="weakestHabitScore">
+                —
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="habits-grid">
+
+        <div class="habit-chart-card">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <p class="eyebrow">
+                        BEHAVIOR SCORES
+                    </p>
+
+                    <h3>
+                        Programming Tendencies
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div id="behaviorBars">
+
+                <div class="behavior-row">
+
+                    <div class="behavior-label">
+                        Hash Maps
+                    </div>
+
+                    <div class="behavior-track">
+                        <div
+                            id="hashMapBar"
+                            class="behavior-fill"
+                        ></div>
+                    </div>
+
+                    <strong id="hashMapScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="behavior-row">
+
+                    <div class="behavior-label">
+                        Sets
+                    </div>
+
+                    <div class="behavior-track">
+                        <div
+                            id="setBar"
+                            class="behavior-fill"
+                        ></div>
+                    </div>
+
+                    <strong id="setScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="behavior-row">
+
+                    <div class="behavior-label">
+                        Recursion
+                    </div>
+
+                    <div class="behavior-track">
+                        <div
+                            id="recursionBar"
+                            class="behavior-fill"
+                        ></div>
+                    </div>
+
+                    <strong id="recursionScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="behavior-row">
+
+                    <div class="behavior-label">
+                        Nested Loops
+                    </div>
+
+                    <div class="behavior-track">
+                        <div
+                            id="nestedLoopBar"
+                            class="behavior-fill"
+                        ></div>
+                    </div>
+
+                    <strong id="nestedLoopScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="behavior-row">
+
+                    <div class="behavior-label">
+                        Brute Force
+                    </div>
+
+                    <div class="behavior-track">
+                        <div
+                            id="bruteForceBar"
+                            class="behavior-fill"
+                        ></div>
+                    </div>
+
+                    <strong id="bruteForceScore">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="habit-chart-card">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <p class="eyebrow">
+                        RECURRING PATTERNS
+                    </p>
+
+                    <h3>
+                        Detected Techniques
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="recurringPatterns"
+                class="recurring-patterns"
+            >
+
+                <span class="no-patterns">
+                    Analyzing your submissions...
+                </span>
+
+            </div>
+
+
+            <p
+                id="behaviorSummary"
+                class="behavior-summary"
+            >
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ACTION -->
+
+        <section class="action-card">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI CODE ANALYZER
+                </p>
+
+                <h2>
+                    Analyze your next solution
+                </h2>
+
+                <p>
+                    Submit Python code and see how
+                    the AI interprets your programming
+                    behavior.
+                </p>
+
+            </div>
+
+
+            <a
+                href="analyze.html"
+                class="primary-button action-button"
+            >
+                Analyze Code →
+            </a>
+
+        </section>
+
+
+        <div
+            id="dashboardMessage"
+            class="message"
+        ></div>
+
+    </main>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
