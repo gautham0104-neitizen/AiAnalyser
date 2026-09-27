@@ -1719,21 +1719,10 @@ def register(
             username
         )
 
-        cursor = db.connection.cursor()
-
-        cursor.execute(
-            """
-            UPDATE users
-            SET password_hash = ?
-            WHERE id = ?
-            """,
-            (
-                hashed_password,
-                user_id
-            )
+        db.set_password(
+            user_id,
+            hashed_password
         )
-
-        db.connection.commit()
 
         return {
             "message": "Registration successful.",

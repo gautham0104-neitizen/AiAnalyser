@@ -361,6 +361,26 @@ class Database:
 
         return row
 
+    def set_password(
+        self,
+        user_id: int,
+        password_hash: str
+    ) -> None:
+
+        cursor = self._cursor()
+
+        cursor.execute(
+            self._sql("""
+                UPDATE users
+                SET password_hash = ?
+                WHERE id = ?
+            """),
+            (password_hash, user_id)
+        )
+
+        self._commit()
+        cursor.close()
+
     # =========================================================
     # SUBMISSION METHODS
     # =========================================================
