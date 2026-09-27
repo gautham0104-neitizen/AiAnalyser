@@ -898,9 +898,7 @@ def build_growth_analysis(history):
 def get_my_profile(
     current_user: dict = Depends(get_current_user)
 ):
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
         user_id = current_user["id"]
@@ -1412,9 +1410,7 @@ def get_my_history(
     current_user: dict = Depends(get_current_user)
 ):
 
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
 
@@ -1497,9 +1493,7 @@ def get_submission(
     submission_id: int,
     current_user: dict = Depends(get_current_user)
 ):
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
         cursor = db.connection.cursor()
@@ -1608,9 +1602,7 @@ def analyze_submission(
         analysis
     )
 
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
         user_id = current_user["id"]
@@ -1704,9 +1696,7 @@ def register(
             detail="Password must contain at least 8 characters."
         )
 
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
 
@@ -1767,9 +1757,7 @@ def login(
 
     username = request.username.strip()
 
-    db = Database(
-        "data/ml_dataset_v2.db"
-    )
+    db = Database()
 
     try:
 
