@@ -1,4 +1,5 @@
 import os
+import re
 import json
 # pyrefly: ignore [missing-import]
 from fastapi import FastAPI, HTTPException, Depends
@@ -16,9 +17,15 @@ app = FastAPI(
     title="AI Programmer Analyzer API"
 )
 
+_ALLOWED_ORIGIN = os.getenv("ALLOWED_ORIGIN", "")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    allow_origin_regex=(
+        r"https?://(localhost|127\.0\.0\.1)(:\d+)?$"
+        r"|https://[a-zA-Z0-9\-]+\.vercel\.app$"
+        + (r"|" + re.escape(_ALLOWED_ORIGIN) if _ALLOWED_ORIGIN else r"")
+    ),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
