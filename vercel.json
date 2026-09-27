@@ -1,4 +1,4 @@
 {
-    "rootDirectory": "frontend",
-    "outputDirectory": "."
+    "cleanUrls": true,
+    "trailingSlash": false
 }
